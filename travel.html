@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="travel.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"><img src="chatbot logo.png" alt="">InteliMind</div>
+        <div class="nav-links">
+            <a href="index.php">Home</a>
+            <a href="#">About</a>
+            <div class="dropdown">
+                <button class="dropbtn">Chatbots</button>
+                <div class="dropdown-content">
+                    <a href="career.html">Career</a>
+                    <a href="travel.html">Travel</a>
+                    <a href="health.html">Health</a>
+                    <a href="Entertainment.html">Entertainment</a>
+                </div>
+            </div>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <div class="wlc">
+        <h1>Welcome to the Travel Chatbot</h1>
+    </div>
+
+    <div class="main-content">
+        <div class="chat-container">
+            <div class="chat-box" id="chatBox"></div>
+            <div class="chat-input">
+                <input type="text" id="userInput" placeholder="Ask Anything...">
+                <button onclick="sendMessage();" class="send-icon">
+                    <img src="send-icon.png" alt="Send" width="20" height="20">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set domain-specific data for the chatbot
+        var domain = "Travel";
+
+        // Function to set and send the message (from original `script.js`)
+        function sendMessage() {
+            var userInput = document.getElementById("userInput");
+            var chatBox = document.getElementById("chatBox");
+
+            var text = userInput.value.trim();
+            if (text === ""){ 
+             alert("Please give prompt");
+             return;
+            }
+            appendMessage("user", text);
+            userInput.value = "";
+
+            appendMessage("bot", "🤔 Thinking...");
+
+            fetch("response.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ text: text, domain: domain }),
+            })
+            .then(res => res.text())
+            .then(response => {
+                removeLastBotMessage();
+                appendMessage("bot", response);
+            })
+            .catch(err => {
+                removeLastBotMessage();
+                appendMessage("bot", "Oops! Something went wrong. Try again.");
+            });
+        }
+
+        function appendMessage(sender, message) {
+            var chatBox = document.getElementById("chatBox");
+            var messageDiv = document.createElement("div");
+            messageDiv.classList.add("chat-message", sender === "user" ? "user-message" : "bot-message");
+            messageDiv.innerText = message;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function removeLastBotMessage() {
+            var chatBox = document.getElementById("chatBox");
+            var botMessages = chatBox.getElementsByClassName("bot-message");
+            if (botMessages.length > 0) {
+                chatBox.removeChild(botMessages[botMessages.length - 1]);
+            }
+        }
+
+        document.getElementById("userInput").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

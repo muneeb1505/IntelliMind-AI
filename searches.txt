@@ -1,0 +1,25 @@
+Domain: General | Query: what is AI?
+Domain: General | Query: hii
+Domain: General | Query: hey
+Domain: General | Query: what is today temperature in amravati MH
+Domain: General | Query: then what things you have access?
+Domain: General | Query: write a hello world program in python
+Domain: General | Query: now give in java
+Domain: General | Query: * "Give a Java program to calculate the factorial of a number."
+Domain: General | Query: give same code in javascript
+Domain: General | Query: ok give
+Domain: General | Query: gimme a recipe of aloo samose
+Domain: Travel | Query: hii
+Domain: General | Query: hii
+Domain: General | Query: what is today?
+Domain: General | Query: today is 26 march 2025
+Domain: General | Query: upto what date you have date
+Domain: General | Query: hii
+Domain: Travel | Query: hii
+Domain: Travel | Query: what tasks can you performs?
+Domain: Travel | Query: my budget is something 20 k rupees to trip to jaipur so plz manage the trip?
+Domain: General | Query: hii
+Domain: General | Query: upto what date you have date?
+Domain: General | Query: which model you are
+Domain: General | Query: i mean version
+Domain: General | Query: are you gemin 1.5 pro ?

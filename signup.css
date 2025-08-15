@@ -1,0 +1,75 @@
+/* Set the full-page background color */
+body {
+    background-color: #EAF1FF; /* Light Blue */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Styling for the form container */
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+}
+
+/* Center the heading */
+h2 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Style input fields */
+.form-control {
+    height: 45px;
+    font-size: 16px;
+}
+
+/* Style submit button */
+.btn-primary {
+    background-color: #166FE5; /* Matches screenshot */
+    border: none;
+    font-size: 18px;
+    height: 45px;
+    width: 100%;
+}
+
+/* Style submit button on hover */
+.btn-primary:hover {
+    background-color: #135bd1;
+}
+
+/* Sign-up link */
+/* .signup-link {
+    text-align: center;
+    margin-top: 15px;
+} */
+
+.signup-link {
+    text-align: center;
+    margin-top: 15px;
+    color: #555; /* Soft gray for readability */
+}
+
+/* Make the link more attractive */
+.signup-link a {
+    color:#60A5FA;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.signup-link a:hover {
+    color: #60A5FA;
+    text-decoration: underline;
+}
+
+.header{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
